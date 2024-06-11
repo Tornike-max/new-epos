@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes paint-up {
+    from {
+        clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    }
+
+    to {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.animate-paint-up {
+    animation: paint-up 2s ease-in-out forwards;
+}
+
+canvas {
+    height: 100vh;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    /* Set the width of the scrollbar */
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #4c5caf;
+    /* Set the color of the scrollbar thumb */
+    border-radius: 4px;
+    /* Add border radius to the scrollbar thumb */
+}
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Set the color of the scrollbar track */
+}
+
+/* Optional: Hover styles for the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #213491;
+    /* Change color on hover */
+}
+
+@layer components {
+    .bg-dark-2 {
+        /* Define your background styles here */
+        background-color: #333;
+        /* Example color */
+    }
+}
+
+.rightsidebar {
+    @apply hidden xl:flex px-6 py-10 flex-col justify-between min-w-[270px];
+}
