@@ -2,26 +2,15 @@ import { motion } from "framer-motion";
 // import PressReleaseTabs from "./PressReleaseTabs";
 import { Divider } from "@nextui-org/react";
 import PressReleaseMain from "./PressReleaseMain";
-import { pressReleaseData } from "../../constants/constant";
-import { PressReleaseDataType } from "../../types/types";
-import { useSearchParams } from "react-router-dom";
 import React from "react";
+import { useGetPressRelease } from "../../hooks/useGetPressRelease";
+import Loading from "../../ui/Loading";
+import { Models } from "appwrite";
 
 const PressReleaseInfo = () => {
-  const [searchParams] = useSearchParams();
-  const data = pressReleaseData;
+  const { pressRelease, isPressReleasePending } = useGetPressRelease();
 
-  const filterByYear = searchParams.get("filterByYear") || "all";
-
-  let filteredData;
-
-  if (filterByYear === "2024")
-    filteredData = data.filter((info) => info.date.includes("2024")) ?? null;
-  if (filterByYear === "2023")
-    filteredData = data.filter((info) => info.date.includes("2023")) ?? null;
-  if (filterByYear === "2022")
-    filteredData = data.filter((info) => info.date.includes("2022")) ?? null;
-  if (filterByYear === "all") filteredData = data ?? null;
+  if (isPressReleasePending) return <Loading />;
 
   return (
     <motion.div
@@ -39,10 +28,10 @@ const PressReleaseInfo = () => {
     >
       {/* <PressReleaseTabs /> */}
       <Divider />
-      {filteredData && filteredData.length > 0 ? (
-        filteredData?.map((dat: PressReleaseDataType) => (
-          <React.Fragment key={dat.date}>
-            <PressReleaseMain data={dat} />
+      {pressRelease && pressRelease.length > 0 ? (
+        pressRelease?.map((release: Models.Document) => (
+          <React.Fragment key={release.$id}>
+            <PressReleaseMain release={release} />
           </React.Fragment>
         ))
       ) : (

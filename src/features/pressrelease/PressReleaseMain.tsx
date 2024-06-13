@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { PressReleaseDataType } from "../../types/types";
 import { Button, Divider } from "@nextui-org/react";
 import { useRef } from "react";
 import { useToggleDarkMode } from "../../context/useToggleDarkMode";
 import { useNavigate } from "react-router-dom";
+import { Models } from "appwrite";
 
-const PressReleaseMain = ({ data }: { data: PressReleaseDataType }) => {
+const PressReleaseMain = ({ release }: { release: Models.Document }) => {
   const { selected } = useToggleDarkMode();
   const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
@@ -47,8 +47,8 @@ const PressReleaseMain = ({ data }: { data: PressReleaseDataType }) => {
       <Divider className={`${selected === "dark" && "bg-slate-800"}`} />
 
       <div className={divClass}>
-        <h4 className={h4Class}>{data.date}</h4>
-        <p className={pClass}>{data.info}</p>
+        <h4 className={h4Class}>{release.date}</h4>
+        <p className={pClass}>{release.info}</p>
       </div>
 
       <div className={divClass}>
@@ -66,7 +66,7 @@ const PressReleaseMain = ({ data }: { data: PressReleaseDataType }) => {
       </div>
       <div className="w-full flex justify-start items-center">
         <Button
-          onClick={() => navigate(`/press-release/releaseid/${data.id}`)}
+          onClick={() => navigate(`/press-release/releaseid/${release.id}`)}
           className={`bg-blue-500 text-slate-100 hover:text-white`}
         >
           See Full

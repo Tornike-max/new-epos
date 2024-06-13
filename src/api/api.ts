@@ -63,3 +63,20 @@ export const getSingleProductApi = async (id: string) => {
     throw new Error("Error while getting data");
   }
 };
+
+export const getReleaseApi = async () => {
+  try {
+    const response = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.releaseCollectionId
+    );
+    if (!response.documents) {
+      throw new Error("Failed to get data");
+    }
+
+    return response.documents;
+  } catch (error) {
+    console.error("Error while getting data:", error);
+    throw new Error("Error while getting data");
+  }
+};
