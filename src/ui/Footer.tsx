@@ -7,7 +7,7 @@ const Footer = () => {
   const navigate = useNavigate();
   const { selected } = useToggleDarkMode();
   return (
-    <div className=" w-full flex flex-col justify-center items-center">
+    <div className=" w-full flex flex-col justify-center items-center z-50">
       <div className="w-full text-black flex justify-center items-center py-1 sm:py-4 gap-4 text-2xl">
         <Link
           to="https://www.instagram.com/epossoftware/"
@@ -40,7 +40,7 @@ const Footer = () => {
         </Link>
       </div>
       <div className="w-full flex justify-center items-center">
-        <div className="w-full hidden sm:flex items-center justify-center gap-1 sm:gap-2 ">
+        <div className="w-full hidden sm:flex items-center justify-center text-sm sm:text-base gap-1 sm:gap-2 ">
           <button
             onClick={() => navigate("/company?info=access")}
             className="relative cursor-pointer group"
@@ -82,9 +82,9 @@ const Footer = () => {
             </p>
             <span className="absolute left-0 bottom-0 h-0.5 bg-transparent transition-all duration-300 group-hover:w-full group-hover:bg-[#405DE6]" />
           </button>
-          <button className="relative cursor-pointer group">
+          <button className="relative cursor-pointer group text-sm sm:text-base">
             <p
-              className={`flex items-center gap-1 ${
+              className={`flex items-center  gap-1 ${
                 selected === "light" ? "text-primary-500" : "text-slate-100"
               } duration-150 transition-colors`}
             >
@@ -106,7 +106,7 @@ const Footer = () => {
           <span
             className={` ${
               selected === "light" ? "text-slate-600" : "text-slate-100"
-            }`}
+            } text-sm sm:text-base`}
           >
             © 2024 EposSoftware, Inc. All rights reserved.
           </span>

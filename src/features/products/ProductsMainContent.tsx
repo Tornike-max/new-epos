@@ -1,12 +1,12 @@
 import { Image } from "@nextui-org/react";
 import ProductsMain from "./ProductsMain";
 import { useNavigate } from "react-router-dom";
-import { ProductType } from "../../types/types";
+import { Models } from "appwrite";
 
-const ProductsMainContent = ({ product }: { product: ProductType }) => {
+const ProductsMainContent = ({ product }: { product: Models.Document }) => {
   const navigate = useNavigate();
 
-  const handleNavigateToDescription = (id: number) => {
+  const handleNavigateToDescription = (id: string) => {
     if (!id) throw new Error("Something went wrong");
 
     navigate(`/products/description/${id}`);
@@ -19,7 +19,7 @@ const ProductsMainContent = ({ product }: { product: ProductType }) => {
           <Image
             isBlurred
             width={900}
-            onClick={() => handleNavigateToDescription(product.id)}
+            onClick={() => handleNavigateToDescription(product?.$id)}
             height={500}
             alt={product.title}
             fallbackSrc="https://via.placeholder.com"

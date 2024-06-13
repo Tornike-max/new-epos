@@ -5,13 +5,13 @@ export interface Square {
 
 export type ProductType = {
   image: string;
-  video: string;
+  video?: string;
   genre: string;
   title: string;
   release: string;
   for: string;
   description: string;
-  id: number;
+  id: string;
 };
 
 export type PressReleaseType = {

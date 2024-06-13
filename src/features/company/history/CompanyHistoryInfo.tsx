@@ -49,18 +49,18 @@ const CompanyHistoryInfo = ({ selected }: { selected: string }) => {
                 duration: 0.3,
                 delay: i * 0.2,
               }}
-              key={item.year}
+              key={item.date}
               className="p-4 border rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-150 "
             >
               <p
-                className={`text-xl font-semibold mb-2 ${
+                className={`text-lg sm:text-xl font-semibold mb-2 ${
                   selected === "dark" && "text-slate-100"
                 }`}
               >
-                {item.year}
+                {item.date}
               </p>
               <p
-                className={`${
+                className={`text-sm sm:text-base ${
                   selected === "dark" ? "text-slate-100" : "text-gray-600"
                 }`}
               >

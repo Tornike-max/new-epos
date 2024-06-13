@@ -6,10 +6,10 @@ import Prototypes from "../../../ui/Prototypes";
 import { cards } from "../../../constants/constant";
 
 const CompanyAboutInfo = ({ selected }: { selected: string }) => {
-  const companyStyle1 = `font-semibold duration-150 transition-all ${
+  const companyStyle1 = `font-semibold text-xs sm:text-sm md:text-base duration-150 transition-all ${
     selected === "light" ? "text-slate-500" : "text-slate-300"
   } `;
-  const companyStyle2 = `font-semibold duration-150 transition-all ${
+  const companyStyle2 = `font-semibold text-xs sm:text-sm md:text-base duration-150 transition-all ${
     selected === "light" ? "text-slate-800" : "text-slate-100"
   } `;
 

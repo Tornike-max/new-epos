@@ -34,7 +34,7 @@ const CompanyAccessInfo = ({ selected }: { selected: string }) => {
       <Divider className={`${selected === "dark" ? "bg-slate-600" : ""}`} />
 
       <div className="max-w-[1300px] w-full flex justify-center items-center flex-col py-8 gap-8">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-2">
           <p
             className={`max-w-[200px] w-full font-semibold ${
               selected === "dark" ? "text-slate-100" : "text-slate-700"
@@ -68,7 +68,7 @@ const CompanyAccessInfo = ({ selected }: { selected: string }) => {
           <p
             className={`w-full font-semibold ${
               selected === "dark" ? "text-slate-100" : "text-slate-700"
-            }  text-base`}
+            }  text-sm sm:text-base md:text-lg`}
           >
             604, Tower A, New Trade Plaza, 6 On Ping Street, Shatin, N.T., Hong
             Kong

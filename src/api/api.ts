@@ -1,4 +1,6 @@
 import axios from "axios";
+import { appwriteConfig, databases } from "../appwriteConfig/appwrite";
+import { Query } from "appwrite";
 
 export const sendEmail = async (message: string, email: string) => {
   try {
@@ -23,5 +25,41 @@ export const sendEmail = async (message: string, email: string) => {
   } catch (error) {
     console.error("Error while sending email:", error);
     throw new Error("Error while sending email");
+  }
+};
+
+export const getProductsApi = async () => {
+  try {
+    const response = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.productsCollectionId
+    );
+    if (!response.documents) {
+      throw new Error("Failed to get data");
+    }
+
+    return response.documents;
+  } catch (error) {
+    console.error("Error while getting data:", error);
+    throw new Error("Error while getting data");
+  }
+};
+
+export const getSingleProductApi = async (id: string) => {
+  try {
+    console.log(id);
+    const response = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.productsCollectionId,
+      [Query.equal("$id", id)]
+    );
+    if (!response) {
+      throw new Error("Failed to get data");
+    }
+
+    return response.documents[0];
+  } catch (error) {
+    console.error("Error while getting data:", error);
+    throw new Error("Error while getting data");
   }
 };

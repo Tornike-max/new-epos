@@ -102,15 +102,15 @@ export const tabs = ["All", "Mobile Apps", "Platform", "Soundtrack"];
 
 export const data = [
   {
-    image: "/images/babylon.png",
-    video: "",
-    genre: "Arcade",
     title: "Babylon",
+    genre: "Arcade",
     release: "2024",
     for: "Android",
     description:
       'In "Babylon: Adventure" the story of old lands is illustrated in a new setting, the Land of Forgotten Sands. Players will enjoy an adventure with a high degree of freedom, in various situations full of mysteries and danger with newly added numerous weapons and armor.',
     id: 1,
+    video: "",
+    image: "/images/babylon.png",
   },
   {
     image: "/images/babylon.png",
@@ -127,7 +127,7 @@ export const data = [
 
 export const companyHistoryData = [
   {
-    year: 2024,
+    date: 2024,
     description: `Epos Software Limited - a team of passionate developers, designers, 
     and artists united by our love for creating mobile games that delight millions of
     players around the world. Our mission is to transform fantastic ideas into 
@@ -144,26 +144,26 @@ export const pressReleaseCards = [
     title: "Account",
     subtitle: "Manage profile",
     filterName: "#",
-    year: "2024",
+    date: "2024",
     description: "",
   },
   {
     title: "Account",
     subtitle: "Manage profile",
     filterName: "#",
-    year: "2023",
+    date: "2023",
   },
   {
     title: "Account",
     subtitle: "Manage profile",
     filterName: "#",
-    year: "2022",
+    date: "2022",
   },
   {
     title: "Account",
     subtitle: "Manage profile",
     filterName: "#",
-    year: "2021",
+    date: "2021",
   },
 ];
 
@@ -176,16 +176,6 @@ export const pressReleaseData = [
   {
     id: 2,
     date: "22.05.2024",
-    info: `Epos Software Ltd. (Headquarters: Europe; President & CEO: Michael Bulkaty) and Epos Software Ltd. (Headquarters: Hongkong, China; President: Ozbelashvili Temur) announced that the developed collectable card game "Babylon: Adventure".`,
-  },
-  {
-    id: 3,
-    date: "14.01.2023",
-    info: `Epos Software Ltd. (Headquarters: Europe; President & CEO: Michael Bulkaty) and Epos Software Ltd. (Headquarters: Hongkong, China; President: Ozbelashvili Temur) announced that the developed collectable card game "Babylon: Adventure".`,
-  },
-  {
-    id: 4,
-    date: "26.08.2024",
     info: `Epos Software Ltd. (Headquarters: Europe; President & CEO: Michael Bulkaty) and Epos Software Ltd. (Headquarters: Hongkong, China; President: Ozbelashvili Temur) announced that the developed collectable card game "Babylon: Adventure".`,
   },
 ];
