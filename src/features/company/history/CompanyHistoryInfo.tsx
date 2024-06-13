@@ -26,7 +26,13 @@ const CompanyHistoryInfo = ({ selected }: { selected: string }) => {
       </h1>
       <Divider />
       <section className="w-full flex justify-center items-center gap-4 py-4">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div
+          className={`w-full grid ${
+            companyHistoryData.length > 2
+              ? "grid-cols-1 lg:grid-cols-2 gap-8"
+              : "grid-cols-1"
+          }`}
+        >
           {companyHistoryData.map((item, i) => (
             <motion.div
               initial={{

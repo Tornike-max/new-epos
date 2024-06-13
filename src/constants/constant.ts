@@ -127,30 +127,13 @@ export const data = [
 
 export const companyHistoryData = [
   {
-    year: 2020,
-    description:
-      "Epos Software, Inc. is established in Sasazuka, Shibuya-ku, Tokyo, for the development of business application software.",
-  },
-  {
-    year: 2021,
-    description: `First venture into the game software development market in response to SONY´s launch of its game console, PlayStation.`,
-  },
-  {
-    year: 2022,
-    description: `	
-    July: Enters the Sega Dreamcast software market with the release of multiplayer mech action game "FRAME GRIDE (DC)."`,
-  },
-  {
-    year: 2023,
-    description: `Joins the SONY PlayStation 2 software market.
-    March: 3D real-time RPG "ETERNAL RING (PS2)" is released.
-    August: 3D mech action game "ARMORED CORE 2 (PS2)" is released.`,
-  },
-  {
     year: 2024,
-    description: `Begins developing and releasing titles for the Nintendo GameCube and the Microsoft Xbox.
-
-    First game development for multiple platforms.`,
+    description: `Epos Software Limited - a team of passionate developers, designers, 
+    and artists united by our love for creating mobile games that delight millions of
+    players around the world. Our mission is to transform fantastic ideas into 
+    captivating gaming adventures, offering high-quality and innovative solutions
+    for modern gamers. Join us to explore unique worlds and stories crafted with
+    love and professionalism. Inspired to create masterpieces.`,
   },
 ];
 
