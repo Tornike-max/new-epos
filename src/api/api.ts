@@ -47,7 +47,6 @@ export const getProductsApi = async () => {
 
 export const getSingleProductApi = async (id: string) => {
   try {
-    console.log(id);
     const response = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.productsCollectionId,
@@ -75,6 +74,41 @@ export const getReleaseApi = async () => {
     }
 
     return response.documents;
+  } catch (error) {
+    console.error("Error while getting data:", error);
+    throw new Error("Error while getting data");
+  }
+};
+
+export const getHistoryApi = async () => {
+  try {
+    const response = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.historyCollectionId
+    );
+    if (!response.documents) {
+      throw new Error("Failed to get data");
+    }
+
+    return response.documents[0];
+  } catch (error) {
+    console.error("Error while getting data:", error);
+    throw new Error("Error while getting data");
+  }
+};
+
+export const getAboutApi = async () => {
+  try {
+    const response = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.aboutCollectionId
+    );
+
+    if (!response.documents) {
+      throw new Error("Failed to get data");
+    }
+
+    return response.documents[0];
   } catch (error) {
     console.error("Error while getting data:", error);
     throw new Error("Error while getting data");

@@ -4,14 +4,20 @@ import { motion } from "framer-motion";
 import ShuffleGrid from "../../../ui/ShuffleGrid";
 import Prototypes from "../../../ui/Prototypes";
 import { cards } from "../../../constants/constant";
+import { useGetAbout } from "../../../hooks/useGetAbout";
+import Loading from "../../../ui/Loading";
+import { formatDate } from "../../../ui/formatDate";
 
 const CompanyAboutInfo = ({ selected }: { selected: string }) => {
+  const { aboutData, isAboutPending } = useGetAbout();
   const companyStyle1 = `font-semibold text-xs sm:text-sm md:text-base duration-150 transition-all ${
     selected === "light" ? "text-slate-500" : "text-slate-300"
   } `;
   const companyStyle2 = `font-semibold text-xs sm:text-sm md:text-base duration-150 transition-all ${
     selected === "light" ? "text-slate-800" : "text-slate-100"
   } `;
+
+  if (isAboutPending) return <Loading />;
 
   return (
     <motion.div
@@ -39,27 +45,25 @@ const CompanyAboutInfo = ({ selected }: { selected: string }) => {
       <section className="w-full flex flex-col items-start justify-center gap-4 py-4">
         <div className="max-w-[550px] w-full grid grid-cols-2 gap-10">
           <p className={companyStyle1}>Company Name:</p>
-          <p className={companyStyle2}>Epos Software</p>
+          <p className={companyStyle2}>{aboutData?.companyName}</p>
         </div>
         <div className=" max-w-[550px] w-full grid grid-cols-2 gap-10">
           <p className={companyStyle1}>Date of Foundation:</p>
-          <p className={companyStyle2}>01.03.2024</p>
+          <p className={companyStyle2}>{formatDate(aboutData?.founded_at)}</p>
         </div>
         <div className=" max-w-[550px] w-full grid grid-cols-2 gap-10">
           <p className={companyStyle1}>Address:</p>
-          <p className={companyStyle2}>Hong Kong</p>
+          <p className={companyStyle2}>
+            {aboutData?.Address.includes("Hong Kong") ? "Hong Kong" : ""}
+          </p>
         </div>
         <div className="max-w-[550px] w-full grid grid-cols-2 gap-10">
           <p className={companyStyle1}>DUNS Number:</p>
-          <p className={companyStyle2}>989199894</p>
+          <p className={companyStyle2}>{aboutData?.DUNS}</p>
         </div>
         <div className=" max-w-[550px] w-full grid grid-cols-2 gap-10">
           <p className={companyStyle1}>Description of Business:</p>
-          <p className={companyStyle2}>
-            Transnational company that creates high-quality IT products.
-            Planning, development and distribution of videogames and internet
-            content.
-          </p>
+          <p className={companyStyle2}>{aboutData?.Address}</p>
         </div>
       </section>
       <Divider />

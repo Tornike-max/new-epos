@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useToggleDarkMode } from "../../context/useToggleDarkMode";
 import { useNavigate } from "react-router-dom";
 import { Models } from "appwrite";
+import { formatDate } from "../../ui/formatDate";
 
 const PressReleaseMain = ({ release }: { release: Models.Document }) => {
   const { selected } = useToggleDarkMode();
@@ -47,7 +48,7 @@ const PressReleaseMain = ({ release }: { release: Models.Document }) => {
       <Divider className={`${selected === "dark" && "bg-slate-800"}`} />
 
       <div className={divClass}>
-        <h4 className={h4Class}>{release.date}</h4>
+        <h4 className={h4Class}>{formatDate(release.date)}</h4>
         <p className={pClass}>{release.info}</p>
       </div>
 

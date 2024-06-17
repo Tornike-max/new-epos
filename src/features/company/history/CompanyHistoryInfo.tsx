@@ -1,8 +1,14 @@
 import { Divider } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { companyHistoryData } from "../../../constants/constant";
+import { useGetHistory } from "../../../hooks/useGetHistory";
+import Loading from "../../../ui/Loading";
+import { formatDate } from "../../../ui/formatDate";
 
 const CompanyHistoryInfo = ({ selected }: { selected: string }) => {
+  const { historyData, isHistoryPending } = useGetHistory();
+  if (isHistoryPending) return <Loading />;
+
   return (
     <motion.div
       variants={{
@@ -57,14 +63,14 @@ const CompanyHistoryInfo = ({ selected }: { selected: string }) => {
                   selected === "dark" && "text-slate-100"
                 }`}
               >
-                {item.date}
+                {formatDate(historyData?.date)}
               </p>
               <p
                 className={`text-sm sm:text-base ${
                   selected === "dark" ? "text-slate-100" : "text-gray-600"
                 }`}
               >
-                {item.description}
+                {historyData?.description}
               </p>
             </motion.div>
           ))}

@@ -12,6 +12,8 @@ export const appwriteConfig = {
     .VITE_APPWRITE_HISTORY_COLLECTION_ID as string,
   releaseCollectionId: import.meta.env
     .VITE_APPWRITE_RELEASE_COLLECTION_ID as string,
+  aboutCollectionId: import.meta.env
+    .VITE_APPWRITE_ABOUT_COLLECTION_ID as string,
   storageImages: import.meta.env.VITE_APPWRITE_STORAGE_IMAGES_ID,
   storageSquares: import.meta.env.VITE_APPWRITE_STORAGE_SQUARES_ID,
   storageCard: import.meta.env.VITE_APPWRITE_STORAGE_CARD_ID,
