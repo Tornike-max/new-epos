@@ -31,11 +31,22 @@ const SupportForm = () => {
   };
 
   return (
-    <div className="w-full h-full flex justify-center items-center">
+    <div
+      className={`w-full flex justify-center items-center ${
+        selected === "dark" ? "bg-slate-900" : "bg-slate-50"
+      }  mt-10 py-6 px-2 sm:px-4 lg:px-8 rounded-lg duration-150 transition-all`}
+    >
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-3xl w-full flex justify-center items-center flex-col gap-2 py-4 px-4"
+        className="max-w-4xl w-full flex justify-center items-center flex-col gap-2 py-2 px-2"
       >
+        <h1
+          className={` font-semibold text-lg sm:text-xl md:text-3xl pb-4 ${
+            selected === "dark" ? "text-slate-100" : "text-slate-900"
+          }`}
+        >
+          Please fill out the form.
+        </h1>
         <Input
           type="email"
           variant={selected === "light" ? "bordered" : "flat"}

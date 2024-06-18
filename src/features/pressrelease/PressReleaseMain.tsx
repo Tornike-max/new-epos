@@ -22,7 +22,7 @@ const PressReleaseMain = ({ release }: { release: Models.Document }) => {
     selected === "dark" ? "text-slate-100" : "text-slate-700"
   } duration-150 transition-all text-start w-full`;
 
-  const pClass = `w-full flex items-center justify-start ${
+  const pClass = `w-full flex flex-col justify-center items-start sm:flex-row sm:items-center sm:justify-start ${
     selected === "dark" && "text-slate-100"
   } duration-150 transition-all`;
 
@@ -53,21 +53,23 @@ const PressReleaseMain = ({ release }: { release: Models.Document }) => {
       </div>
 
       <div className={divClass}>
-        <h4 className={h4Class}>New adventures begin in Babylon...</h4>
+        <h4 className={h4Class}>
+          New adventures begin in {release.products.title}...
+        </h4>
         <p className={pClass}>
           <span
             className={`${
               selected === "dark" ? "text-slate-100" : "text-slate-900"
             } duration-150 transition-all font-semibold`}
           >
-            "Babylon: Adventure"
+            "{release.products.title}"
           </span>
-          <span> Product Information will be coming soon...</span>
+          <span>Product Information will be coming soon...</span>
         </p>
       </div>
       <div className="w-full flex justify-start items-center">
         <Button
-          onClick={() => navigate(`/press-release/releaseid/${release.id}`)}
+          onClick={() => navigate(`/press-release/${release.$id}`)}
           className={`bg-blue-500 text-slate-100 hover:text-white`}
         >
           See Full

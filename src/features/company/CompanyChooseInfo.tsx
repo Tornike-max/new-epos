@@ -30,10 +30,10 @@ const CompanyChooseInfo = () => {
         duration: 0.3,
         delay: 0.2,
       }}
-      className="w-full flex flex-col items-start justify-center gap-4 px-2 pt-20 sm:pt-4"
+      className="w-full flex flex-col items-start justify-center gap-4 sm:pt-4"
     >
       <div
-        className={`w-full flex items-center justify-start gap-4  text-base font-medium ${
+        className={`w-full flex items-center justify-start gap-4 text-base font-medium ${
           selected === "light" ? "text-slate-700" : "text-slate-200"
         } `}
       >

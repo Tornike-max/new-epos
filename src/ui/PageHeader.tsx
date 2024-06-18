@@ -7,7 +7,7 @@ const PageHeader = () => {
   const { selected } = useToggleDarkMode();
 
   return (
-    <div className="sticky px-10 py-6 w-full hidden sm:flex flex-col justify-center items-start gap-2 sm:gap-3">
+    <div className="sticky px-10 py-6 w-full flex flex-col justify-center items-start gap-2 sm:gap-3">
       <div className="w-full flex justify-between items-center">
         <Link to="/">
           <img

@@ -14,11 +14,9 @@ const SupportsMain = () => {
         duration: 0.3,
         delay: 0.2,
       }}
-      className="w-full h-full flex flex-col justify-start sm:justify-start items-center"
+      className="w-full flex flex-col justify-center items-center"
     >
-      <div className="max-w-3xl w-full flex justify-center items-center">
-        <SupportForm />
-      </div>
+      <SupportForm />
     </motion.div>
   );
 };

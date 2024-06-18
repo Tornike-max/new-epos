@@ -25,7 +25,7 @@ const ProductDescMain = ({ productData }: { productData: Models.Document }) => {
       : "shadow-lg shadow-gray-200";
 
   return (
-    <div className="w-full flex flex-col justify-center items-start gap-4 p-4">
+    <div className="w-full flex flex-col justify-start items-start gap-4  py-4">
       <div
         className={`${cardBackground} ${cardShadow} rounded-lg p-6 w-full duration-150 transition-all`}
       >
@@ -69,7 +69,7 @@ const ProductDescMain = ({ productData }: { productData: Models.Document }) => {
             <div className="w-full py-2">
               <button
                 onClick={onOpen}
-                className="px-6 py-2 flex items-center gap-2 font-medium bg-indigo-500 text-white w-fit transition-all transform hover:scale-105 rounded-lg"
+                className=" px-3 py-2 md:px-4 md:py-3 text-lg flex items-center gap-2 font-medium bg-indigo-500 text-white w-fit transition-all transform hover:scale-105 rounded-lg"
               >
                 <HiOutlineVideoCamera />
                 <span>Trailer</span>
@@ -92,13 +92,13 @@ const ProductDescMain = ({ productData }: { productData: Models.Document }) => {
                 <HiOutlineDocumentArrowDown />
                 <span>Download apk for android</span>
               </Link>
-              <Link
+              {/* <Link
                 className="py-2 px-3 w-full rounded-md bg-primary-500 hover:bg-primary-600 flex items-center justify-center gap-2 text-slate-100 text-xs md:text-sm lg:text-base"
                 to="#"
               >
                 <HiOutlineDocumentArrowDown />
                 <span>Download apk for ios</span>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

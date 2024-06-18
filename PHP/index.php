@@ -1,9 +1,16 @@
 <?php
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Credentials: true");
 
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
-header('Access-Control-Allow-Origin: http://localhost:5173');
+// Handle preflight requests
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(204); // No Content
+    exit(0);
+}
 
+// Your existing code below
 require __DIR__ . '/vendor/autoload.php';
 
 use app\SendEmail;
@@ -17,6 +24,8 @@ try {
 }
 
 $resendApiKey = $_ENV['RESEND_API_KEY'];
+$resendSendTo = $_ENV['RESEND_GET_EMAIL_TO'];
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inputJSON = file_get_contents('php://input');
@@ -35,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit('Message and email are required');
     }
 
-    $sendEmail = new SendEmail($resendApiKey, $message, $email);
+    $sendEmail = new SendEmail($resendApiKey, $message, $email, $resendSendTo);
 
     try {
         $result = $sendEmail->sendEmail();

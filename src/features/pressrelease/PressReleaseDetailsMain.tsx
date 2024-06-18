@@ -1,14 +1,19 @@
 import { motion } from "framer-motion";
 import { useToggleDarkMode } from "../../context/useToggleDarkMode";
+import { Models } from "appwrite";
+import { formatDate } from "../../ui/formatDate";
+import { Button } from "@nextui-org/react"; // Import the Button component from your UI library or use a simple HTML button
+import { useNavigate } from "react-router-dom";
 
-type ReleaseType = {
-  id: number;
-  date: string;
-  info: string;
-};
-
-const PressReleaseDetailsMain = ({ data }: { data: ReleaseType }) => {
+const PressReleaseDetailsMain = ({ data }: { data: Models.Document }) => {
   const { selected } = useToggleDarkMode();
+  const navigate = useNavigate();
+
+  const handleNavigate = (id: string) => {
+    console.log(id);
+    if (!id) return;
+    navigate(`/products/description/${id}`);
+  };
   return (
     <motion.div
       variants={{
@@ -44,8 +49,16 @@ const PressReleaseDetailsMain = ({ data }: { data: ReleaseType }) => {
             selected === "dark" ? "text-slate-200" : "text-slate-900"
           } duration-150 transition-all`}
         >
-          {data.date}
+          {formatDate(data.date)}
         </p>
+
+        <Button
+          className={`mt-4 duration-150 transition-all`}
+          onClick={() => handleNavigate(data?.products?.$id)}
+          color="primary"
+        >
+          See Game
+        </Button>
       </div>
     </motion.div>
   );

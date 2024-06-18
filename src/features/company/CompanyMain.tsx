@@ -9,7 +9,7 @@ const CompanyMain = () => {
   const getInfo = searchParams.get("info") || "about";
   const { selected } = useToggleDarkMode();
   return (
-    <div className="w-full flex items-start justify-center gap-2 py-8 px-2">
+    <div className="w-full flex items-start justify-center gap-2 py-8">
       {getInfo === "about" && <CompanyAboutInfo selected={selected} />}
       {getInfo === "history" && <CompanyHistoryInfo selected={selected} />}
       {getInfo === "access" && <CompanyAccessInfo selected={selected} />}

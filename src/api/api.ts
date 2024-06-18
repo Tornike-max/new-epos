@@ -80,6 +80,24 @@ export const getReleaseApi = async () => {
   }
 };
 
+export const getSingleReleaseApi = async (id: string) => {
+  try {
+    const response = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.releaseCollectionId,
+      [Query.equal("$id", id)]
+    );
+    if (!response) {
+      throw new Error("Failed to get data");
+    }
+
+    return response.documents[0];
+  } catch (error) {
+    console.error("Error while getting data:", error);
+    throw new Error("Error while getting data");
+  }
+};
+
 export const getHistoryApi = async () => {
   try {
     const response = await databases.listDocuments(

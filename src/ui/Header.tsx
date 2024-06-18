@@ -16,7 +16,7 @@ const Header = () => {
         duration: 0.3,
         delay: 0.2,
       }}
-      className="w-full z-50 px-8 py-2 rounded-lg opacity-90 "
+      className="w-full z-50 px-4 md:px-8 py-2 rounded-lg opacity-90 "
     >
       <motion.ul className="relative w-full z-50 flex items-center justify-center">
         {pageList.slice(0, 1).map((page, i) => (

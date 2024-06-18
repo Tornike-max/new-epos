@@ -1,18 +1,23 @@
 import { motion } from "framer-motion";
 import { useToggleDarkMode } from "../../context/useToggleDarkMode";
 import { Button, Divider } from "@nextui-org/react";
-import { useNavigate, useParams } from "react-router-dom";
-import { pressReleaseData } from "../../constants/constant";
+import { useNavigate } from "react-router-dom";
 import PressReleaseDetailsMain from "./PressReleaseDetailsMain";
+import { useGetSingleRelease } from "../../hooks/useGetSingleRelease";
+import Loading from "../../ui/Loading";
 
 const PressReleaseDetails = () => {
-  const { releaseId } = useParams();
+  const { release, isReleasePending } = useGetSingleRelease();
   const { selected } = useToggleDarkMode();
   const navigate = useNavigate();
 
-  const releaseData = pressReleaseData.filter(
-    (item) => item.id === Number(releaseId)
-  )[0];
+  if (isReleasePending) return <Loading />;
+
+  console.log(release);
+
+  // const releaseData = pressReleaseData.filter(
+  //   (item) => item.id === Number(releaseId)
+  // )[0];
 
   return (
     <motion.div
@@ -44,7 +49,7 @@ const PressReleaseDetails = () => {
         Go Back
       </Button>
       <Divider className={`${selected === "dark" && "bg-slate-600"}`} />
-      {releaseData && <PressReleaseDetailsMain data={releaseData} />}
+      {release && <PressReleaseDetailsMain data={release} />}
     </motion.div>
   );
 };

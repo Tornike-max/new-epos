@@ -4,12 +4,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import { pageList } from "../constants/constant";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useToggleDarkMode } from "../context/useToggleDarkMode";
 import SmallToggleDark from "./SmallToggleDark";
 
 const NavbarDrawer = () => {
-  const { selected } = useToggleDarkMode();
   const { pathname } = useLocation();
+
   const navigate = useNavigate();
 
   return (
@@ -17,9 +16,7 @@ const NavbarDrawer = () => {
       <div className="w-full flex items-center justify-center py-8">
         <img
           onClick={() => navigate("/")}
-          src={`${
-            selected === "dark" ? "/images/epos.png" : "/images/dark-epos.png"
-          }`}
+          src={`${"/images/epos.png"}`}
           alt="logo"
           className="w-24 text-slate-500 rounded-md cursor-pointer"
         />{" "}
@@ -41,11 +38,7 @@ const NavbarDrawer = () => {
             </ListItemButton>
           </ListItem>
         ))}
-        <span
-          className={`text-xs ${
-            selected === "light" ? "text-gray-600" : "text-slate-100"
-          } mt-8 block text-center`}
-        >
+        <span className={`text-xs ${"text-slate-100"} mt-8 block text-center`}>
           © 2024 Epos Software. All rights reserved.
         </span>
       </List>

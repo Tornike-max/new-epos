@@ -17,17 +17,23 @@ const MainLayout = () => {
           <NavbarMenuMobile />
         </header>
         <section
-          className={`flex flex-col flex-1 h-full ${
+          className={`fle min-h-screen flex-col flex-1 h-full ${
             selected === "light" ? "bg-slate-100" : "bg-slate-950"
           } duration-150 transition-all pb-10 md:pb-20`}
         >
-          <PageHeader />
+          <header className="hidden sm:block">
+            <PageHeader />
+          </header>
 
-          <HeaderTitle />
+          <header className="mt-20 sm:mt-2">
+            <HeaderTitle />
+          </header>
 
-          <Outlet />
+          <main className="w-full ">
+            <Outlet />
+          </main>
         </section>
-        <aside className="hidden sticky sm:block right-0 top-0 h-screen">
+        <aside className="hidden sticky sm:block right-0 top-0 h-screen ">
           <MiniSidebar>
             {pageList.slice(1).map((item) => (
               <SidebarItem key={item.path} path={item.path} text={item.label} />

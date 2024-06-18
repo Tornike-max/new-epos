@@ -32,9 +32,9 @@ const HeaderTitle = () => {
 
   return (
     <h1
-      className={`font-bold ${
+      className={`font-bold pb-0 pt-4w ${
         selected === "light" ? "text-slate-900" : "text-slate-100"
-      } duration-150 transition-all text-lg sm:text-2xl px-10`}
+      } duration-150 transition-all text-xl sm:text-3xl px-4 sm:px-6 md:px-8 lg:px-10`}
     >
       {title}
     </h1>

@@ -8,7 +8,7 @@ const NavbarItems = ({ page }: { page: { label: string; path: string } }) => {
     <li className="w-full flex items-center justify-center z-50">
       <FlyoutLink href={page.path}>
         <p
-          className={`text-lg font-semibold hover:text-slate-950 duration-150 transition-all  ${
+          className={`text-base md:text-lg font-semibold hover:text-slate-950 duration-150 transition-all  ${
             pathname === page.path
               ? "text-slate-950 font-bold"
               : "text-slate-800"

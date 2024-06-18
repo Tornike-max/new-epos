@@ -107,12 +107,12 @@ export const HomePage = () => {
             duration: 0.3,
             delay: 0.2,
           }}
-          className="relative max-w-3xl w-full z-10 flex flex-col items-center bg-red-100/30 rounded-lg mt-36 sm:mt-0 py-8 px-8"
+          className="relative max-w-5xl w-full z-10 flex flex-col items-center bg-red-100/30 rounded-lg mt-56 sm:mt-4 lg:mt-0 py-8 px-8"
         >
           <h1 className="w-full bg-gradient-to-br from-slate-900 to-slate-600 bg-clip-text text-center text-2xl md:text-5xl lg:text-7xl font-medium leading-tight text-transparent sm:text-5xl sm:leading-tight md:leading-tight">
             Experience Gaming Like Never Before, Dive into Our World.
           </h1>
-          <p className="my-7 max-w-xl text-center text-base bg-gradient-to-br from-slate-900 to-slate-600  bg-clip-text leading-relaxed md:text-lg md:leading-relaxed font-semibold text-transparent">
+          <p className="my-7 max-w-2xl text-center text-base bg-gradient-to-br from-slate-900 to-slate-600  bg-clip-text leading-relaxed md:text-lg md:leading-relaxed font-semibold text-transparent">
             Your epic journey starts now
           </p>
           <motion.button

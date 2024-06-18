@@ -19,11 +19,7 @@ const SmallToggleDark = () => {
         )
       }
     >
-      <span
-        className={`${
-          selected === "dark" ? "text-slate-100" : "text-slate-800"
-        }`}
-      >
+      <span className={`${"text-slate-100"}`}>
         {selected === "dark" ? "Dark Mode" : "Light Mode"}
       </span>
     </Switch>

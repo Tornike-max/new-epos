@@ -25,7 +25,7 @@ function App() {
             />
             <Route path="/press-release" element={<PressReleasePage />} />
             <Route
-              path="/press-release/releaseid/:releaseId"
+              path="/press-release/:id"
               element={<PressReleaseDetails />}
             />
             {/* <Route path="/careers" element={<CareersPage />} />
